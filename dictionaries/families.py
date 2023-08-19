@@ -4,29 +4,29 @@ families_list_of_dicts = [
     "father": "Dan",
     "children": [
       {
-        "name": "Dalton",
+        "name": "Bob",
         "age": "25"
       },
       {
-        "name": "Cade",
+        "name": "Jed",
         "age": "23"
       },
       {
-        "name": "Cruz",
+        "name": "Albert",
         "age": "15"
       },
       {
-        "name": "Mari",
+        "name": "Martha",
         "age": "14"
       },
     ],
     "home": {
-      "address": "123 Lovers Ln",
+      "address": "123 Right Way",
       "type": "house"
     }
   },
   {
-    "name": "Collums",
+    "name": "Smiths",
     "father": "Shaun",
     "children": [
       {
@@ -47,7 +47,7 @@ families_list_of_dicts = [
       },
     ],
     "home": {
-      "address": "456 Easy rd"
+      "address": "456 Easy Road"
     }
   }
 ]
