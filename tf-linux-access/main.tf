@@ -50,3 +50,4 @@ resource "aws_instance" "linux" {
 
   user_data = base64encode(templatefile("init-scripts/provision-users.sh", {users = local.users}))
 }
+
