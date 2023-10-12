@@ -1,7 +1,11 @@
+locals {
+  students = jsondecode(file("/Users/dan/github/dnlloyd/mcc-csis-119-private/passwords-plain-text.json"))
+}
+
 resource "aws_security_group" "linux_server" {
-  name        = "linux-server"
+  name        = "mcc-csis-119-linux"
   description = "Access to Linux server"
-  vpc_id      = local.vpc_id
+  vpc_id      = "vpc-2f83f048"
 
   ingress {
     description = "SSH"
@@ -18,7 +22,7 @@ resource "aws_security_group" "linux_server" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  tags = { Name = "linux-server-access" }
+  tags = { Name = "mcc-csis-119-linux" }
 }
 
 data "aws_ami" "amazon_linux" {
@@ -27,7 +31,7 @@ data "aws_ami" "amazon_linux" {
 
   filter {
     name = "name"
-    values = ["amazon/al2023-ami-2023.1.20230809.0-kernel-6.1-x86_64"]
+    values = ["al2023-ami-2023.1.20230809.0-kernel-6.1-x86_64"]
   }
 
   filter {
@@ -48,6 +52,12 @@ resource "aws_instance" "linux" {
     Name = "mcc-csis-119-linux"
   }
 
-  user_data = base64encode(templatefile("init-scripts/provision-users.sh", {users = local.users}))
+  # https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html#user-data-shell-scripts
+  # cat /var/log/cloud-init-output.log
+  # /var/lib/cloud/instances/i-XXX/user-data.txt
+  user_data = base64encode(templatefile("init-scripts/provision-users.tftpl", {students = local.students}))
 }
 
+output "public_ip" {
+  value = aws_instance.linux.public_ip
+}
