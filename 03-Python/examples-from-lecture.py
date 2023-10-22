@@ -193,14 +193,25 @@
 #   return e['year']
 
 # cars = [
-#   {'car': 'Ford', 'year': 2005},
-#   {'car': 'Mitsubishi', 'year': 2000},
-#   {'car': 'BMW', 'year': 2019},
-#   {'car': 'VW', 'year': 2011}
+#   {
+#     'car': 'Ford',
+#     'year': 2005
+#   },
+#   {
+#     'car': 'Mitsubishi',
+#     'year': 2000
+#   },
+#   {
+#     'car': 'BMW', 
+#     'year': 2019
+#   },
+#   {
+#     'car': 'VW',
+#     'year': 2011
+#   }
 # ]
 
 # cars.sort(key=myFunc)
-
 # print(cars)
 
 
@@ -226,10 +237,11 @@
 # print(my_new_tuple)
 
 
-my_tuple_1 = ["Ford", "Toyota", "Chevrolet"]
-my_tuple_2 = ["GM", "Audi"]
-my_tuple_3 = my_tuple_1 + my_tuple_2
-print(my_tuple_3)
+# my_tuple_1 = ["Ford", "Toyota", "Chevrolet"]
+# my_tuple_2 = ["GM", "Audi"]
+# my_tuple_3 = my_tuple_1 + my_tuple_2
+# print(my_tuple_3)
+
 
 
 
