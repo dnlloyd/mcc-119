@@ -28,12 +28,6 @@ class Doctor:
 
   def name(self):
     return self.fname + ' ' + self.lname
-  
-  # def set_on_call(self, on_call):
-  #   self.on_call = on_call
-  
-  # def on_call(self):
-  #   return self.on_call
 
 
 ## Class instantiations
@@ -49,9 +43,9 @@ patient04 = Patient('Janet', 'Reno', 78, '010-43-9998')
 patient01.set_critical_condition('stroke')
 patient03.set_critical_condition('pneumonia')
 
-doctor01.on_call = True
-
 patients = [patient01, patient02, patient03, patient04]
+
+doctor01.on_call = True
 doctors = [doctor01, doctor01]
 
 doctor_on_call = None

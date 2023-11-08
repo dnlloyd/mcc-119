@@ -5,19 +5,19 @@ families_list_of_dicts = [
     "children": [
       {
         "name": "Bob",
-        "age": "25"
+        "age": 25
       },
       {
         "name": "Jed",
-        "age": "23"
+        "age": 23
       },
       {
         "name": "Albert",
-        "age": "15"
+        "age": 15
       },
       {
         "name": "Martha",
-        "age": "14"
+        "age": 14
       },
     ],
     "home": {
@@ -31,19 +31,19 @@ families_list_of_dicts = [
     "children": [
       {
         "name": "Haley",
-        "age": "28"
+        "age": 28
       },
       {
         "name": "Tate",
-        "age": "24"
+        "age": 24
       },
       {
         "name": "Jace",
-        "age": "21"
+        "age": 21
       },
       {
         "name": "Liv",
-        "age": "18"
+        "age": 18
       },
     ],
     "home": {
