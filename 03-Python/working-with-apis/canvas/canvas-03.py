@@ -1,0 +1,34 @@
+import requests
+import sys
+import json 
+
+token = sys.argv[1]
+headers = {'Authorization': f'Bearer {token}'}
+base_url = 'https://mcckc.instructure.com'
+
+response = requests.get(f'{base_url}/api/v1/courses', headers=headers)
+courses = response.json()
+
+course_ids = []
+
+for course in courses:
+  course_ids.append(course['id'])
+
+print(course_ids)
+
+# for course_id in course_ids:
+#   if course_id == 10089:
+#     print('================================')
+#     print(f'Course ID: {course_id}')
+#     print('================================')
+#     ### https://canvas.instructure.com/doc/api/courses.html#method.courses.effective_due_dates
+#     response = requests.get(f'{base_url}/api/v1/courses/{course_id}/effective_due_dates', headers=headers)
+#     assignment_due_dates = response.json()
+    
+#     for assignment_id, info in assignment_due_dates.items():
+#       print(f'Assignment: {assignment_id}')
+#       # print(json.dumps(info))
+#       for student_id, data in info.items():
+#         print(f"  - Student: {student_id} - Due date: {data['due_at']}")
+
+#       print('\n')

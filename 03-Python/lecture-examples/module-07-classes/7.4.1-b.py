@@ -1,4 +1,6 @@
 class Patient:
+  admitted = True  ### 7.4.1 class attribute
+  
   def __init__(self, fname, lname, age, ss, critical_condition=None):
     self.fname = fname
     self.lname = lname
@@ -18,7 +20,6 @@ class Patient:
     else:
       return False 
 
-
 class Doctor:
   def __init__(self, fname, lname, specialty, on_call=False):
     self.fname = fname
@@ -30,29 +31,29 @@ class Doctor:
     return self.fname + ' ' + self.lname
 
 
-## Class instantiations
-doctor01 = Doctor('Hawkeye', 'Pierce', 'Cardiologist')
+###### Main
+# Doctor class instantiations
+doctor01 = Doctor('Hawkeye', 'Pierce', 'Cardiologist', on_call=True)
 doctor02 = Doctor('Greg', 'House', 'Neurologist')
 
-patient01 = Patient('Dan', 'Lloyd', 49, '123-45-6789')
-patient02 = Patient('Marsha', 'Brady', 67, '987-65-4321')
-patient03 = Patient('Bob', 'Marley', 36, '555-67-1267')
-patient04 = Patient('Janet', 'Reno', 78, '010-43-9998')
-
-## Main
-patient01.set_critical_condition('stroke')
-patient03.set_critical_condition('pneumonia')
-
-patients = [patient01, patient02, patient03, patient04]
-
-doctor01.on_call = True
-doctors = [doctor01, doctor01]
+doctors = [doctor01, doctor02]
 
 doctor_on_call = None
 
 for doctor in doctors:
   if doctor.on_call:
-    doctor_on_call = doctor01
+    doctor_on_call = doctor
+    print(f'Setting {doctor.name()} to on call\n')
+
+# Patient class instantiations
+patient01 = Patient('Dan', 'Lloyd', 49, '123-45-6789', critical_condition='stroke')
+patient02 = Patient('Marsha', 'Brady', 67, '987-65-4321')
+patient03 = Patient('Bob', 'Marley', 36, '555-67-1267')
+patient04 = Patient('Janet', 'Reno', 78, '010-43-9998')
+
+patients = [patient01, patient02, patient03, patient04]
+
+patient03.set_critical_condition('pneumonia')
 
 for patient in patients:
   if patient.is_critical():

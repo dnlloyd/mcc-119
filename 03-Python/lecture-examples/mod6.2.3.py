@@ -8,15 +8,16 @@ my_family = {
   "son": "Dalton"
 }
 
-yo_family = my_family.copy()
+# yo_family = my_family.copy()
 
-my_family["father"] = "bob"
-print(yo_family)
-print(my_family)
+# my_family["father"] = "bob"
+# print(yo_family)
+# print(my_family)
 
 
 
 ### Copy (Deep)
+yo_family = {}
 my_family = yo_family
 
 my_family["father"] = "bob"

@@ -7,10 +7,10 @@ my_family = {
   "child1": "Cruz"
 }
 
-print(my_family["dad"])
+# print(my_family["dad"])
 
-father = my_family.get('dad')
-print(father)
+# father = my_family.get('dad')
+# print(father)
 
 
 
