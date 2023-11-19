@@ -4,9 +4,9 @@ import json
 
 token = sys.argv[1]
 headers = {'Authorization': f'Bearer {token}'}
-base_url = 'https://mcckc.instructure.com'
+base_url = 'https://mcckc.instructure.com/api/v1'
 
-response = requests.get(f'{base_url}/api/v1/courses', headers=headers)
+response = requests.get(f'{base_url}/courses', headers=headers)
 courses = response.json()
 
 course_ids = []
@@ -22,7 +22,7 @@ print(course_ids)
 #     print(f'Course ID: {course_id}')
 #     print('================================')
 #     ### https://canvas.instructure.com/doc/api/courses.html#method.courses.effective_due_dates
-#     response = requests.get(f'{base_url}/api/v1/courses/{course_id}/effective_due_dates', headers=headers)
+#     response = requests.get(f'{base_url}/courses/{course_id}/effective_due_dates', headers=headers)
 #     assignment_due_dates = response.json()
     
 #     for assignment_id, info in assignment_due_dates.items():
