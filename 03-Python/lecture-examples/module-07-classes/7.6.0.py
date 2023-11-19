@@ -1,8 +1,6 @@
 import locale
 locale.setlocale( locale.LC_ALL, '' )
 
-### 7.6 Class inheritance
-# superclass
 class Hospital:
   org = "MCC Medical Center"
 
@@ -22,6 +20,7 @@ class MapleWoods(Hospital):
     fee = (income / age) * 100 / children
 
     return fee
+
 
 # subclass
 class Penn(Hospital):

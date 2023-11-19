@@ -6,10 +6,10 @@ class Patient:
 
 ### 7.2.2 & 7.2.4 Class instantiation and initialization
 me = Patient('Dan', 'Lloyd')
-# you = Patient('Bob', 'Roberts')
+you = Patient('Bob', 'Roberts')
 
-# print(me.fname)
-# print(you.lname)
+print(me.fname)
+print(you.lname)
 
 
 ### 7.2.3

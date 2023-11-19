@@ -45,10 +45,10 @@ for patient in patients:
     print(f'Patient {patient.name()} is in critical condition: {patient.critical_condition}')
 
 # Let's say the hospital is closing down, we can access all instances via the class attribute
-# for patient in patients:
-#   print(f'{patient.name()}: {patient.admitted}')
+for patient in patients:
+  print(f'{patient.name()}: {patient.admitted}')
 
-# Patient.admitted = False
+Patient.admitted = False
 
-# for patient in patients:
-#   print(f'{patient.name()}: {patient.admitted}')
+for patient in patients:
+  print(f'{patient.name()}: {patient.admitted}')

@@ -23,24 +23,25 @@ class Patient:
     else:
       return False
     
-  # def __str__(self):
-  #   details = f"Name: {self.fname} {self.lname}\n"
-  #   details += f"Age: {self.age}"
-  #   details += f"Social security #: {self.ss}"
-  #   details += f"Critical conditions: {self.critical_condition}"
+  def __str__(self):
+    details = f"Name: {self.fname} {self.lname}\n"
+    details += f"Age: {self.age}\n"
+    details += f"Social security #: {self.ss}\n"
+    details += f"Critical conditions: {self.critical_condition}"
 
-  #   return details
+    return details
 
 
 ## Main
 patient01 = Patient('Dan', 'Lloyd', 49, '123-45-6789')
 
+print(patient01)  # but the default __str__ method is really ugly, so lets override it
 
 ### All objects a printable because of the built in __str__ method
-my_string = "Hello"
-my_list = [5, "dan"]
+# my_string = "Hello"
+# my_list = [5, "dan"]
 
-print(my_string)
-print(my_list)
+# print(my_string)
+# print(my_list)
 
-print(patient01)  # but the default __str__ method is really ugly, so lets override it
+
