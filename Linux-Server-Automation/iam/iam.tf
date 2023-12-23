@@ -1,7 +1,11 @@
 # https://docs.aws.amazon.com/systems-manager/latest/userguide/getting-started-restrict-access-quickstart.html
 
+variable "canvas_students_file" {}
+variable "gpg_key" {}
+variable "class_name" {}
+
 locals {
-  students = jsondecode(file("/Users/dan/github/dnlloyd/mcc-csis-119-private/students.json"))
+  students = jsondecode(file(var.canvas_students_file))
 }
 
 resource "aws_iam_user" "student" {
@@ -19,10 +23,15 @@ resource "aws_iam_user" "student" {
 resource "aws_iam_user_login_profile" "student" {
   for_each = local.students
 
-  user    = aws_iam_user.student[each.key].name
-  # pgp public key
+  user = aws_iam_user.student[each.key].name
+  # create GPG key
   # gpg --export dan@lloydconsulting.net | base64
-  pgp_key = file("/Users/dan/tmp/secure/gpg-lc.pub")
+  # /Users/dan/tmp/secure/gpg-lc.pub
+  pgp_key = file(var.gpg_key)
+}
+
+resource "aws_iam_group" "class" {
+  name = var.class_name
 }
 
 resource "aws_iam_user_group_membership" "csis_119" {
@@ -30,6 +39,11 @@ resource "aws_iam_user_group_membership" "csis_119" {
 
   user = aws_iam_user.student[each.key].name
   groups = ["csis_119"]
+}
+
+resource "aws_iam_group_policy_attachment" "test-attach" {
+  group      = aws_iam_group.class.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ReadOnlyAccess"
 }
 
 # output password | base64 --decode | gpg -d

@@ -4,14 +4,10 @@ https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-get
 https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-getting-started-restrict-access.html
 https://docs.aws.amazon.com/systems-manager/latest/userguide/session-preferences-shell-config.html
 
-# TODOs
+## 1. Add to IAM group
 
-## 1. IAM Group
+**Policy**
 
-**Policies**
-  - AmazonEC2ReadOnlyAccess
-
-  - Inline
 ```
 {
     "Version": "2012-10-17",

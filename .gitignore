@@ -33,3 +33,7 @@ override.tf.json
 *plan.out*
 
 **/.terraform.lock.hcl
+
+# Ignore VSCode debug files as they may hold sensitive data
+**/.vscode/launch.json
+
