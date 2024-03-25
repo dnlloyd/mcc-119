@@ -1,11 +1,20 @@
-read -p "Enter name: " name
+#!/bin/bash
 
-if [ "$name" == "bob" ]
-then
-  echo "liar"
-else
-  echo "Your name is $name"
-fi
+echo "Enter name: "
+read name
+
+# echo "Enter age: "
+# read age
+
+# if [[ "${name}" == "bob" && "${age}" -gt 15 ]]
+# then
+#   echo "Your name is bob and you are old enough to drive"
+# elif [[ "${age}" -gt 15 ]]
+# then
+#   echo "you are old enough to drive"
+# else
+#   echo "you are too young to drive"
+# fi
 
 case $name in
   "dan")

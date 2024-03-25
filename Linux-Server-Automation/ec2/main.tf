@@ -1,11 +1,15 @@
+variable "canvas_students_passwords_file" {}
+variable "class_name" {}
+
 locals {
-  students = jsondecode(file("/Users/dan/github/dnlloyd/mcc-csis-119-private/passwords-plain-text.json"))
+  students = jsondecode(file(var.canvas_students_passwords_file))
+  vpc_id = "vpc-2f83f048"
 }
 
 resource "aws_security_group" "linux_server" {
-  name        = "mcc-csis-119-linux"
-  description = "Access to Linux server"
-  vpc_id      = "vpc-2f83f048"
+  name        = "${var.class_name}-linux"
+  description = "Public access to Linux server"
+  vpc_id      = local.vpc_id
 
   ingress {
     description = "SSH"
@@ -22,7 +26,7 @@ resource "aws_security_group" "linux_server" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  tags = { Name = "mcc-csis-119-linux" }
+  tags = { Name = "${var.class_name}-linux" }
 }
 
 data "aws_ami" "amazon_linux" {
@@ -40,6 +44,34 @@ data "aws_ami" "amazon_linux" {
   }
 }
 
+resource "aws_iam_instance_profile" "ssm" {
+  name = "SSMManagedEc2"
+  role = aws_iam_role.ssm.name
+}
+
+data "aws_iam_policy_document" "assume_role" {
+  statement {
+    effect = "Allow"
+
+    principals {
+      type        = "Service"
+      identifiers = ["ec2.amazonaws.com"]
+    }
+
+    actions = ["sts:AssumeRole"]
+  }
+}
+
+resource "aws_iam_role" "ssm" {
+  name               = "SSMManagedEc2"
+  assume_role_policy = data.aws_iam_policy_document.assume_role.json
+}
+
+resource "aws_iam_role_policy_attachment" "ssm" {
+  role       = aws_iam_role.ssm.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedEC2InstanceDefaultPolicy"
+}
+
 resource "aws_instance" "linux" {
   ami = data.aws_ami.amazon_linux.id
   instance_type = "t3.micro"
@@ -49,7 +81,7 @@ resource "aws_instance" "linux" {
   vpc_security_group_ids = [aws_security_group.linux_server.id]
 
   tags = {
-    Name = "mcc-csis-119-linux"
+    Name = "${var.class_name}-linux"
   }
 
   # https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html#user-data-shell-scripts

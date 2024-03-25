@@ -74,11 +74,17 @@ TF variable for the students file from step 1
 TF_VAR_canvas_students_file
 ```
 
+TF variable for the name of the class
+```
+TF_VAR_class_name
+```
+
 Examples
 
 ```
 export TF_VAR_gpg_key="/Users/dan/tmp/secure/gpg-lc.pub"
 export TF_VAR_canvas_students_file=$CANVAS_STUDENTS_FILE
+export TF_VAR_class_name="csis-119"
 ```
 
 Run Terraform
@@ -114,7 +120,19 @@ Run the [canvas/get-users.py](canvas/get-users.py) script
 
 ## 6. Run terraform to provision EC2 instance
 
-*TODO: Remove hard coded values in main.tf*
+Set the following environment variables
+
+TF variable for the path to the students plain text passwords file
+
+```
+TF_VAR_canvas_students_passwords_file
+```
+
+example
+
+```
+export TF_VAR_canvas_students_passwords_file="/Users/dan/github/dnlloyd/mcc-csis-119-private/passwords-plain-text.json"
+```
 
 ```
 cd ec2
