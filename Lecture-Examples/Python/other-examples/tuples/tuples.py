@@ -14828,7 +14828,7 @@ actions_list = [
   "xray:UpdateSamplingRule"
 ]
 
-actions_tuple = [
+actions_tuple = (
   "a2c:GetContainerizationJobDetails",
   "a2c:GetDeploymentJobDetails",
   "a2c:StartContainerizationJob",
@@ -29654,7 +29654,7 @@ actions_tuple = [
   "xray:UntagResource",
   "xray:UpdateGroup",
   "xray:UpdateSamplingRule"
-]
+)
 
 start_time_list = time.perf_counter()
 
