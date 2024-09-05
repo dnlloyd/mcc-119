@@ -31,7 +31,7 @@ print("hello" * 2)
 print("hello" + "my" + "name" + "is")
 
 #           01234567890
-mystring = "My Fun Stri"
+mystring = "MyFunString"
 print(mystring[0])
 print(mystring[3])
 
@@ -40,6 +40,10 @@ print(mystring[3:6])
 
 ########################## 2.2.1
 print(f"Floor num: {floor_sum}")
+
+
+########################## 2.2.5
+print(f"This is the contents of mystring: {mystring}")
 
 
 ########################## 2.2.6
@@ -51,3 +55,54 @@ else:
 print(mystring.replace("Fun", "Bad"))
 
 print("hello\n" * 2)
+
+
+########################## 2.3
+
+students = ["Dan", "Joe", "Martha"]
+
+new_students = ["Bob", "Ed"]
+
+all_students = students + new_students
+
+all_students.append("Jim")
+
+print(all_students)
+
+
+########################## 2.4
+
+teacher = True
+
+if teacher:
+  print("I'm a teacher")
+
+
+########################## 2.4.2
+
+student = False
+
+if teacher and student:
+  print("you're prob tired")
+
+if not teacher:
+  print("I'm not a teacher")
+else:
+  print("I'm a teacher")
+
+if 5 < 7:
+  print("yes")
+else:
+  print("no")
+
+# Truthy and falsy numbers
+# https://www.freecodecamp.org/news/truthy-and-falsy-values-in-python/
+
+my_int = 5
+
+if teacher and my_int:
+  print("you're prob tired")
+
+if "Dan" in students:
+  print("yes")
+  

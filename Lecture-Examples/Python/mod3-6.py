@@ -1,30 +1,3 @@
-
-
-mixed = [45, "string"]
-student = ["bob", "martha", "ed", "mary"]
-ages = [5, 9, 11]
-
-my_list = []
-my_list.append("bob")
-print(my_list)
-
-if 2 >= 2:
-  print("true")
-
-name = "dan"
-age = 49
-
-if not name == "dan":
-  print("you the student")
-
-
-students = ["bob", "martha", "ed", "mary"]
-
-if "bob" in students:
-  print("is a student")
-else:
-  print("not a student")
-
 ###############################################################################
 ################################## Module 3 ###################################
 
