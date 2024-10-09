@@ -1,25 +1,19 @@
-# import pprint
-# pp = pprint.PrettyPrinter(indent=2, compact=False, width=1)
-
-### Copy (Shallow)
-my_family = {
+the_lloyds = {
   "father": "Dan",
   "mother": "Mel",
   "son": "Dalton"
 }
 
-# yo_family = my_family.copy()
+new_family = the_lloyds.copy()
+# vs. 
+# new_family = the_lloyds
 
-# my_family["father"] = "bob"
-# print(yo_family)
-# print(my_family)
+the_lloyds["father"] = "Bob"
 
+print("The Lloyds")
+print(the_lloyds)
 
+print("")
 
-### Copy (Deep)
-yo_family = {}
-my_family = yo_family
-
-my_family["father"] = "bob"
-print(yo_family)
-print(my_family)
+print("New Family")
+print(new_family)

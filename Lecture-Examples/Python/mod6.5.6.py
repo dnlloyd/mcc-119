@@ -1,9 +1,12 @@
 ### Difference
 athletes = {"Mia Hamm", "Barry Bonds", "LeBron James", "Lance Armstrong"}
+print(f"Athletes: {athletes}")
+
 disqualified = {"Lance Armstrong", "Barry Bonds"}
-# award_recipients = athletes.difference(disqualified)
+award_recipients = athletes.difference(disqualified)
 
-# print(award_recipients)
+print(f"Award Recipients: {award_recipients}")
 
+print("\nRemoving disqualified atheletes")
 athletes.difference_update(disqualified)
-print(athletes)
+print(f"Athletes: {athletes}")
