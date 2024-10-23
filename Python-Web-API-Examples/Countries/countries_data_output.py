@@ -1,4 +1,5 @@
-[
+"""Example of countries output"""
+response = [
     {
         "name": {
             "common": "Taiwan",

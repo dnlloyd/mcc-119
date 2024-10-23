@@ -1,12 +1,15 @@
-import requests
+"""Initial countries API example"""
+
 import pprint
 
+import requests
 
-# Prompt use for country and save as string variable named "country"
+
+# Prompt user for country and save as string variable named "country_search_pattern"
 country_search_pattern = input("What country would like to search for? ")
 
 # Make the GET request to the API endpoint and store response to variable named "response"
-response = requests.get(f'https://restcountries.com/v3.1/name/{country_search_pattern}')
+response = requests.get(f'https://restcountries.com/v3.1/name/{country_search_pattern}', timeout=10)
 
 # Extract the JSON (dictionaries OR list of dictionaries) from the response and store as variable named "countries_data"
 countries_data = response.json()
