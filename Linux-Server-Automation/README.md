@@ -52,18 +52,39 @@ export C_MODE="write"
 
 Run the [canvas/get-users.py](canvas/get-users.py) script
 
+```
+pip install gnupg
+python canvas/get-users.py
+```
+
 ## 3. Provision the IAM users
 
-Install GNU PGP and create key
+### Create and export GPG key
+
+This will be used to encrypt the user passwords in Terraform remote state
+
+Install GNU PGP
 
 ```
 brew install gnupg
-gpg --export some-user@some-sub-domain.some-domain | base64
 ```
+
+Create PGP public/private key pair
+
+```
+gpg --gen-key
+```
+
+Export PGP public key
+
+```
+gpg --export some-user@some-sub-domain.some-domain | base64 > ${HOME}/.gnupg/some-user@some-sub-domain.some-domain.pub
+```
+#### Create users via Terraform
 
 Set the following environment variables
 
-TF variable for the GPG public key location
+TF variable for the GPG public key file location
 
 ```
 TF_VAR_gpg_key
@@ -82,9 +103,9 @@ TF_VAR_class_name
 Examples
 
 ```
-export TF_VAR_gpg_key="/Users/dan/tmp/secure/gpg-lc.pub"
+export TF_VAR_gpg_key="${HOME}/.gnupg/some-user@some-sub-domain.some-domain.pub"
 export TF_VAR_canvas_students_file=$CANVAS_STUDENTS_FILE
-export TF_VAR_class_name="csis-119"
+export TF_VAR_class_name="csis-119-fall-2024"
 ```
 
 Run Terraform

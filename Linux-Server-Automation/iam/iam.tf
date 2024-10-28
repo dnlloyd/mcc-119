@@ -24,9 +24,10 @@ resource "aws_iam_user_login_profile" "student" {
   for_each = local.students
 
   user = aws_iam_user.student[each.key].name
-  # create GPG key
-  # gpg --export dan@lloydconsulting.net | base64
-  # /Users/dan/tmp/secure/gpg-lc.pub
+  
+  # GPG hints
+  # gpg --gen-key
+  # ggpg --export some-user@some.domain.com | base64 > ${HOME}/.gnupg/some-user@some.domain.com.pub
   pgp_key = file(var.gpg_key)
 }
 

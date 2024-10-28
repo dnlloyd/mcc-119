@@ -12,6 +12,7 @@ chmod +x /bin/chuser
 echo "/bin/chuser" >> /etc/shells
 
 useradd bastion --shell /bin/chuser
+
 %{ for username, password in students }
 useradd ${username}
 echo "${password}" | passwd ${username} --stdin;

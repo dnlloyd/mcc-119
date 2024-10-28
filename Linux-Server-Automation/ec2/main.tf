@@ -19,6 +19,14 @@ resource "aws_security_group" "linux_server" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
+  ingress {
+    description = "HTTP"
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
   egress {
     from_port   = 0
     to_port     = 0
@@ -93,3 +101,5 @@ resource "aws_instance" "linux" {
 output "public_ip" {
   value = aws_instance.linux.public_ip
 }
+
+# TODO: Add A record mcc.daniel-lloyd.net resolving to public IP
