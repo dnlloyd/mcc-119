@@ -10,7 +10,7 @@ name_data = name_response.json()
 name_age = name_data['age']
 
 birthday = input('Enter your birthday (04/1)): ')
-birthday_response = requests.get(f"{numbers_url}{birthday}/date")
+birthday_response = requests.get(f"{numbers_url}/{birthday}/date")
 birthday_data = birthday_response.text
 
 dog_owner = input('Do you own a dog? (Y/N) ')

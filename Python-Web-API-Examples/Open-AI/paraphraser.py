@@ -50,7 +50,7 @@ completion = client.chat.completions.create(
     model="gpt-4o",
     messages=[
         {"role": "system", "content": SYSTEM_CONTENT},
-        {"role": "user", "content": f"Rephrase the following paragraph: {user_content}"}
+        {"role": "user", "content": f"Answer this question: {user_content}"}
     ]
 )
 

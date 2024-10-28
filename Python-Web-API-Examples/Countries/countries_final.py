@@ -1,5 +1,5 @@
 """Final countries API example"""
-# import pprint
+import pprint
 
 import requests
 
@@ -21,10 +21,11 @@ print(f"Found {len(countries_data)} countries\n")
 
 # Because our response is a list, we should iterate through the list with a loop
 for country in countries_data:
-    # print(country)
+    print(country["name"]["common"])
+    print(country["flag"])
+    print(country["maps"]['openStreetMaps'])
+    print(f"Population: {country["population"]}")
+    print("")
 
     # Lets print something about each country, how about the common name
-    # print(country['population'])
-    # print("")
-    # pprint.pp(country['name'])
-    # print("")
+    # print(country["name"]['common'])
