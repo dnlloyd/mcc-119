@@ -37,3 +37,4 @@ override.tf.json
 # Ignore VSCode debug files as they may hold sensitive data
 **/.vscode/launch.json
 
+**/students.json
