@@ -10,6 +10,7 @@ country_search_pattern = input("What country would like to search for? ")
 
 # Make the GET request to the API endpoint and store response to variable named "response"
 response = requests.get(f'https://restcountries.com/v3.1/name/{country_search_pattern}', timeout=10)
+response.raise_for_status()
 
 # Extract the JSON (dictionaries OR list of dictionaries) from the response and store as variable named "countries_data"
 countries_data = response.json()
